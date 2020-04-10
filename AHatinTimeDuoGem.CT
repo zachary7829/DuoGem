@@ -4,7 +4,7 @@
     <CheatEntry>
       <ID>1</ID>
       <Description>"DuoGems"</Description>
-      <LastState/>
+      <LastState Activated="1"/>
       <VariableType>Auto Assembler Script</VariableType>
       <AssemblerScript>[ENABLE]
 //code from here to '[DISABLE]' will be used to enable the cheat
@@ -15,7 +15,7 @@ label(exit)
 
 newmem: //this is allocated memory, you have read,write,execute access
 //place your code here
-
+add eax,1
 originalcode:
 add [rbx],eax
 mov eax,[rbx]
