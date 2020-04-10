@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CheatTable CheatEngineTableVersion="29">
+  <CheatEntries>
+    <CheatEntry>
+      <ID>1</ID>
+      <Description>"DuoGems"</Description>
+      <LastState/>
+      <VariableType>Auto Assembler Script</VariableType>
+      <AssemblerScript>[ENABLE]
+//code from here to '[DISABLE]' will be used to enable the cheat
+alloc(newmem,2048,"HatinTimeGame.exe"+46029) 
+label(returnhere)
+label(originalcode)
+label(exit)
+
+newmem: //this is allocated memory, you have read,write,execute access
+//place your code here
+
+originalcode:
+add [rbx],eax
+mov eax,[rbx]
+mov rbx,[rsp+40]
+
+exit:
+jmp returnhere
+
+"HatinTimeGame.exe"+46029:
+jmp newmem
+nop 4
+returnhere:
+
+
+ 
+ 
+[DISABLE]
+//code from here till the end of the code will be used to disable the cheat
+dealloc(newmem)
+"HatinTimeGame.exe"+46029:
+add [rbx],eax
+mov eax,[rbx]
+mov rbx,[rsp+40]
+//Alt: db 01 03 8B 03 48 8B 5C 24 40
+</AssemblerScript>
+    </CheatEntry>
+  </CheatEntries>
+  <UserdefinedSymbols>
+    <SymbolEntry>
+      <Name>randomvalue</Name>
+      <Address>01340000</Address>
+    </SymbolEntry>
+  </UserdefinedSymbols>
+</CheatTable>
